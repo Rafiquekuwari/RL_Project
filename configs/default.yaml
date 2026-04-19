@@ -1,0 +1,45 @@
+seed: 42
+
+generator:
+  episode_minutes: 240
+  min_trains: 14
+  max_trains: 22
+  delay_probability: 0.45
+  max_delay_minutes: 20
+  min_dwell_time: 8
+  max_dwell_time: 20
+  compatibility_types: [0, 1]
+  priority_levels: [1, 2, 3]
+
+station:
+  num_platforms: 4
+  maintenance_probability: 0.1
+  hold_penalty: 1.0
+  invalid_action_penalty: 4.0
+  assignment_reward: 5.0
+  conflict_penalty: 3.0
+  wait_penalty_per_minute: 0.15
+  propagation_penalty_per_minute: 0.25
+  utilization_reward_weight: 1.5
+
+training:
+  total_timesteps: 300000
+  learning_rate: 0.0003
+  n_steps: 256
+  batch_size: 64
+  gamma: 0.99
+  gae_lambda: 0.95
+  ent_coef: 0.01
+  clip_range: 0.2
+  eval_episodes: 5
+
+evaluation:
+  episodes: 5
+  output_dir: outputs
+
+logging:
+  logs_dir: logs
+  models_dir: models
+  plots_dir: plots
+  outputs_dir: outputs
+  tensorboard_dir: logs/tensorboard
